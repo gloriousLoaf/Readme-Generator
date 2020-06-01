@@ -6,68 +6,82 @@ const util = require("util");
 // function to use in async / await structure
 const writeFileAsync = util.promisify(fs.writeFile);
 
+// validator() repeats question if user leaves it blank
+const validator = (val) => {
+    if (val !== "") {
+        return true;
+    }
+}
+
 // Inquirer prompts to gather info to plug into .md template
 function promptUser() {
     return inquirer.prompt([
         {
-            type: "input",
-            name: "repo",
-            message: "Please enter the name of your repo (will be an H1 Header):"
+            type: `input`,
+            name: `repo`,
+            message: `Please enter the name of your repo (will be an H1 Header):`,
+            validate: validator
         },
         {
-            type: "input",
-            name: "tagline",
-            message: "Please enter a one sentence tagline to go beneath H1:"
+            type: `input`,
+            name: `tagline`,
+            message: `Please enter a one sentence tagline to go beneath H1:`,
+            validate: validator
         },
         {
-            type: "input",
-            name: "author",
-            message: "Please enter the full name that you, the author, will use:"
+            type: `input`,
+            name: `author`,
+            message: `Please enter the full name that you, the author, will use:`,
+            validate: validator
         },
         {
-            type: "input",
-            name: "github",
-            message: "Enter your GitHub Username (no @):"
+            type: `input`,
+            name: `github`,
+            message: `Enter your GitHub Username (no @):`,
+            validate: validator
         },
         {
-            type: "input",
-            name: "description",
-            message: "Enter a description for your application (Markdown syntax supported):"
+            type: `input`,
+            name: `description`,
+            message: `Enter a description for your application 
+            (Markdown syntax supported):`,
+            validate: validator
         },
         {
-            type: "input",
-            name: "install",
-            message: "How is your appliction installed?"
+            type: `input`,
+            name: `install`,
+            message: `How is your appliction installed?`,
+            validate: validator
         },
         {
-            type: "input",
-            name: "usage",
-            message: "How is your application used?"
+            type: `input`,
+            name: `usage`,
+            message: `How is your application used?`,
+            validate: validator
         },
         {
-            type: "input",
-            name: "license",
-            message: `Would you like to add a license? Leave blank and press 
-            enter to use default copyright law.`
+            type: `input`,
+            name: `license`,
+            message: `Would you like to add a license? 
+            Press enter to use default copyright law.`,
+            default: `All rights reserved.`,
+            validate: validator
         },
         {
-            type: "input",
-            name: "contributors",
-            message: `Please list any additional contributors (Name, @GitHubUsername).
-             Leave blank and press enter to credit only yourself.`
-        },
-        // What is Tests??
-        {
-            type: "input",
-            name: "tests",
-            message: "Any tests?"
+            type: `input`,
+            name: `contributors`,
+            message: `Please list any additional contributors 
+            (Name, @GitHubUsername). Press enter for default.`,
+            default: `Just myself, the author.`,
+            validate: validator
         },
         // as part of generating Questions portion of readme,
         // append .png to GitHub URL to get profile pic
         {
-            type: "input",
-            name: "email",
-            message: "What email address can users send questions to?"
+            type: `input`,
+            name: `email`,
+            message: `What email address can users send questions to?`,
+            validate: validator
         },
     ]);
 }
@@ -88,28 +102,30 @@ ${answers.tagline}
 * Questions
 <p>&nbsp;</p>
 
-## Description:
+## Description
 ${answers.description}
 <p>&nbsp;</p>
 
-## Installation:
+## Installation
 ${answers.install}
 <p>&nbsp;</p>
 
-## Usage:
+## Usage
 ${answers.usage}
 <p>&nbsp;</p>
 
 ---
 <p>&nbsp;</p>
 
-## License: ${answers.license}
+## License
+${answers.license}
 <p>&nbsp;</p>
 
-## Contributors: ${answers.contributors}
+## Contributors
+${answers.contributors}
 <p>&nbsp;</p>
 
-## Questions:
+## Questions?
   * **${answers.author}**
   * **GitHub:** [${answers.github}](https://github.com/${answers.github})
   * <${answers.email}>
