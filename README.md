@@ -1,14 +1,15 @@
 
 # README Generator
+Simple, attractive markdown for your repos.
 <p>&nbsp;</p>
 
 ## Table of Contents
-* Description
-* Installation
-* Usage
-* License
-* Contributors
-* Questions
+* [Description](#-description)
+* [Installation](#-installation)
+* [Usage](#-usage)
+* [License](#-license)
+* [Contributors](#-contributors)
+* [Questions](#-questions)
 <p>&nbsp;</p>
 
 ## Description:
@@ -46,7 +47,7 @@ Just me for now.
 
 ## Questions:
   * **David Metcalf**  
-  * GitHub: [gloriousLoaf](https://github.com/gloriousLoaf)
+  * **GitHub:** [gloriousLoaf](https://github.com/gloriousLoaf)
   * <davidmetcalfwork@gmail.com>
 
 <img src="https://github.com/gloriousLoaf.png" alt="GitHub Profile Pic" width="125" height="125">

@@ -12,7 +12,12 @@ function promptUser() {
         {
             type: "input",
             name: "repo",
-            message: "Please enter the name of your repo:"
+            message: "Please enter the name of your repo (will be an H1 Header):"
+        },
+        {
+            type: "input",
+            name: "tagline",
+            message: "Please enter a one sentence tagline to go beneath H1:"
         },
         {
             type: "input",
@@ -22,12 +27,12 @@ function promptUser() {
         {
             type: "input",
             name: "github",
-            message: "Enter your GitHub Username:"
+            message: "Enter your GitHub Username (no @):"
         },
         {
             type: "input",
             name: "description",
-            message: "Enter a description for your application:"
+            message: "Enter a description for your application (Markdown syntax supported):"
         },
         {
             type: "input",
@@ -48,7 +53,7 @@ function promptUser() {
         {
             type: "input",
             name: "contributors",
-            message: `Please list any additional contributors (Name, GitHub Username).
+            message: `Please list any additional contributors (Name, @GitHubUsername).
              Leave blank and press enter to credit only yourself.`
         },
         // What is Tests??
@@ -71,6 +76,7 @@ function promptUser() {
 function generateMD(answers) {
     return `
 # ${answers.repo}
+${answers.tagline}
 <p>&nbsp;</p>
 
 ## Table of Contents
@@ -105,7 +111,7 @@ ${answers.usage}
 
 ## Questions:
   * **${answers.author}**
-  * GitHub: [${answers.github}](https://github.com/${answers.github})
+  * **GitHub:** [${answers.github}](https://github.com/${answers.github})
   * <${answers.email}>
 
 <img src="https://github.com/${answers.github}.png" alt="GitHub Profile Pic" width="125" height="125">
@@ -127,7 +133,7 @@ async function init() {
 
         // CHANGE this to README.md, just using the 2 to not 
         // overwrite my repo's readme everytime I test it
-        await writeFileAsync("README.md", md);
+        await writeFileAsync("README2.md", md);
 
         // remove this, just testing in the CLI
         console.log(answers);
