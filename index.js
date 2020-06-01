@@ -11,6 +11,11 @@ function promptUser() {
     return inquirer.prompt([
         {
             type: "input",
+            name: "repo",
+            message: "Please enter the name of your repo:"
+        },
+        {
+            type: "input",
             name: "author",
             message: "Please enter the full name that you, the author, will use:"
         },
@@ -22,7 +27,7 @@ function promptUser() {
         {
             type: "input",
             name: "description",
-            message: "Enter a short description of your application:"
+            message: "Enter a description for your application:"
         },
         {
             type: "input",
@@ -52,11 +57,11 @@ function promptUser() {
             name: "tests",
             message: "Any tests?"
         },
-        // as part of generating this portion,
+        // as part of generating Questions portion of readme,
         // append .png to GitHub URL to get profile pic
         {
             type: "input",
-            name: "questions",
+            name: "email",
             message: "What email address can users send questions to?"
         },
     ]);
@@ -65,8 +70,51 @@ function promptUser() {
 // generateMD() will write the README with user inputs
 function generateMD(answers) {
     return `
-    This is where I will write the template for the README,
-    using the inquirer answers to plug in custom user responses,`
+# ${answers.repo}
+<p>&nbsp;</p>
+
+## Table of Contents
+* Description
+* Installation
+* Usage
+* License
+* Contributors
+* Questions
+<p>&nbsp;</p>
+
+## Description:
+${answers.description}
+<p>&nbsp;</p>
+
+## Installation:
+${answers.install}
+<p>&nbsp;</p>
+
+## Usage:
+${answers.usage}
+<p>&nbsp;</p>
+
+---
+<p>&nbsp;</p>
+
+## License: ${answers.license}
+<p>&nbsp;</p>
+
+## Contributors: ${answers.contributors}
+<p>&nbsp;</p>
+
+## Questions:
+  * **${answers.author}**
+  * GitHub: [${answers.github}](https://github.com/${answers.github})
+  * <${answers.email}>
+
+<img src="https://github.com/${answers.github}.png" alt="GitHub Profile Pic" width="125" height="125">
+<p>&nbsp;</p>
+
+---
+
+##### This markdown was created with [Readme Generator](https://github.com/gloriousLoaf/Readme-Generator)
+`
 }
 
 // init() runs when user enters `node index` in their CLI
@@ -78,8 +126,8 @@ async function init() {
         const md = generateMD(answers);
 
         // CHANGE this to README.md, just using the 2 to not 
-        // overwrite my repos readme everytime I test it
-        await writeFileAsync("README2.md", md);
+        // overwrite my repo's readme everytime I test it
+        await writeFileAsync("README.md", md);
 
         // remove this, just testing in the CLI
         console.log(answers);
