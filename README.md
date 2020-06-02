@@ -14,15 +14,15 @@ Simple, attractive markdown for your repos.
 * [Questions](#-questions)
 <p>&nbsp;</p>
 
-## Description
+### Description
 This application prompts the user through the creation of an easy, attractive README for their repos! It was created with **Node.js** using Inquirer. The goal is to quickly create a nice markdown file for your repos, so you can get back to coding.
 <p>&nbsp;</p>
 
-## Installation
+### Installation
 Clone this repo and run it locally to start making your **README**.
 <p>&nbsp;</p>
 
-## Usage
+### Usage
 Open your repo folder in **Terminal or CLI**, and enter:
 ```bash
 npm install
@@ -39,15 +39,15 @@ The script for this repo will take care of the rest of the content structure.
 ---
 <p>&nbsp;</p>
 
-## License
+### License
 Open source. Enjoy.
 <p>&nbsp;</p>
 
-## Contributors
+### Contributors
 Just me for now.
 <p>&nbsp;</p>
 
-## Questions?
+### Questions?
   * **David Metcalf**  
   * **GitHub:** [gloriousLoaf](https://github.com/gloriousLoaf)
   * <davidmetcalfwork@gmail.com>

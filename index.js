@@ -97,10 +97,10 @@ function promptUser() {
 /* generateMD() will write the README with user inputs:
     Title, Tagline (ln 106)
     ![Github Badges] (ln 109)
-    TOC (ln 113)
-    Description, Installation, Usage (ln 122)
-    License, Contributors, Contact (ln 137)
-    GitHub profile pic (ln 150) */
+    TOC (ln 112)
+    Description, Installation, Usage (ln 121)
+    License, Contributors, Contact (ln 136)
+    GitHub profile pic (ln 149) */
 function generateMD(answers) {
     return `
 # ${answers.title}
