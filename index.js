@@ -16,22 +16,30 @@ const validator = (val) => {
 // Inquirer prompts to gather info to plug into .md template
 function promptUser() {
     return inquirer.prompt([
+        // first a few data points about the repo and author
         {
             type: `input`,
             name: `repo`,
-            message: `Please enter the name of your repo (will be an H1 Header):`,
+            message: `Enter the name of your repo as it appears after
+                 github.com/username/... :`,
+            validate: validator
+        },
+        {
+            type: `input`,
+            name: `title`,
+            message: `Enter a title (H1) to appear atop your README:`,
             validate: validator
         },
         {
             type: `input`,
             name: `tagline`,
-            message: `Please enter a one sentence tagline to go beneath H1:`,
+            message: `Enter a one sentence tagline to go beneath H1:`,
             validate: validator
         },
         {
             type: `input`,
             name: `author`,
-            message: `Please enter the full name that you, the author, will use:`,
+            message: `Enter the full name that you, the author, will use:`,
             validate: validator
         },
         {
@@ -40,6 +48,7 @@ function promptUser() {
             message: `Enter your GitHub Username (no @):`,
             validate: validator
         },
+        // next, about the application. Markdown syntax (without Enter key!)
         {
             type: `input`,
             name: `description`,
@@ -59,6 +68,7 @@ function promptUser() {
             message: `How is your application used?`,
             validate: validator
         },
+        // licensing, contributors, contact info
         {
             type: `input`,
             name: `license`,
@@ -70,13 +80,11 @@ function promptUser() {
         {
             type: `input`,
             name: `contributors`,
-            message: `Please list any additional contributors 
+            message: `List any additional contributors 
             (Name, @GitHubUsername). Press enter for default.`,
             default: `Just myself, the author.`,
             validate: validator
         },
-        // as part of generating Questions portion of readme,
-        // append .png to GitHub URL to get profile pic
         {
             type: `input`,
             name: `email`,
@@ -86,20 +94,28 @@ function promptUser() {
     ]);
 }
 
-// generateMD() will write the README with user inputs
+/* generateMD() will write the README with user inputs:
+    Title, Tagline (ln 106)
+    ![Github Badges] (ln 109)
+    TOC (ln 113)
+    Description, Installation, Usage (ln 122)
+    License, Contributors, Contact (ln 137)
+    GitHub profile pic (ln 150) */
 function generateMD(answers) {
     return `
-# ${answers.repo}
+# ${answers.title}
 ${answers.tagline}
-<p>&nbsp;</p>
+
+![GitHub language count](https://img.shields.io/github/languages/count/${answers.github}/${answers.repo})
+![GitHub top language](https://img.shields.io/github/languages/top/${answers.github}/${answers.repo})
 
 ## Table of Contents
-* Description
-* Installation
-* Usage
-* License
-* Contributors
-* Questions
+* [Description](#-description)
+* [Installation](#-installation)
+* [Usage](#-usage)
+* [License](#-license)
+* [Contributors](#-contributors)
+* [Questions](#-questions)
 <p>&nbsp;</p>
 
 ## Description
@@ -151,12 +167,11 @@ async function init() {
         // overwrite my repo's readme everytime I test it
         await writeFileAsync("README2.md", md);
 
-        // remove this, just testing in the CLI
-        console.log(answers);
         console.log("Successfully created README.md");
     } catch (err) {
         console.log(err);
     }
 }
 
+// fire!
 init();

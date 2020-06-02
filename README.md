@@ -1,7 +1,9 @@
 
 # README Generator
 Simple, attractive markdown for your repos.
-<p>&nbsp;</p>
+
+![GitHub language count](https://img.shields.io/github/languages/count/gloriousLoaf/Readme-Generator)
+![GitHub top language](https://img.shields.io/github/languages/top/gloriousLoaf/Readme-Generator)
 
 ## Table of Contents
 * [Description](#-description)
@@ -13,7 +15,7 @@ Simple, attractive markdown for your repos.
 <p>&nbsp;</p>
 
 ## Description
-This application prompts the user through the creation of an easy, attractive README for their repos! It was created with **Node.js** using Inquirer. The goal is to quickly create a nice markdown file for your repos, so you can get back to coding. This is a **work in progress** and a lot more features are on the way.
+This application prompts the user through the creation of an easy, attractive README for their repos! It was created with **Node.js** using Inquirer. The goal is to quickly create a nice markdown file for your repos, so you can get back to coding.
 <p>&nbsp;</p>
 
 ## Installation
@@ -22,8 +24,8 @@ Clone this repo and run it locally to start making your **README**.
 
 ## Usage
 Open your repo folder in **Terminal or CLI**, and enter:
-```sh
-npm i
+```bash
+npm install
 node index
 ```
 This will install the dependencies then start the application. Think about your ***markdown syntax*** when answering the prompts if you would like to include any special formatting, ~~text effects~~ or [links](https://guides.github.com/features/mastering-markdown/) in your description or instructions.
@@ -53,6 +55,7 @@ Just me for now.
 <img src="https://github.com/gloriousLoaf.png" alt="GitHub Profile Pic" width="125" height="125">
 <p>&nbsp;</p>
 
+#### See a quick demo on YouTube: (https://youtu.be/OsmWsAmRb60)
 ---
 
 ##### This markdown was created with [Readme Generator](https://github.com/gloriousLoaf/Readme-Generator)
