@@ -163,9 +163,7 @@ async function init() {
 
         const md = generateMD(answers);
 
-        // CHANGE this to README.md, just using the 2 to not 
-        // overwrite my repo's readme everytime I test it
-        await writeFileAsync("README2.md", md);
+        await writeFileAsync("README.md", md);
 
         console.log("Successfully created README.md");
     } catch (err) {
