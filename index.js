@@ -59,7 +59,7 @@ function promptUser() {
         {
             type: `input`,
             name: `install`,
-            message: `How is your appliction installed?`,
+            message: `How is your application installed?`,
             validate: validator
         },
         {
