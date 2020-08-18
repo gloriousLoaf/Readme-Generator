@@ -50,7 +50,7 @@ Just me for now.
 ### Questions?
   * **David Metcalf**  
   * **GitHub:** [gloriousLoaf](https://github.com/gloriousLoaf)
-  * <davidmetcalfwork@gmail.com>
+  * <hello@metcalf.dev>
 
 <img src="https://github.com/gloriousLoaf.png" alt="GitHub Profile Pic" width="125" height="125">
 <p>&nbsp;</p>
